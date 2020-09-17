@@ -126,9 +126,9 @@ azure-iot-sdk-c/iothub_client/src/iothub.o \
 azure-iot-sdk-c/c-utility/src/http_proxy_io.o \
 azure-iot-sdk-c/c-utility/src/azure_base32.o \
 
-ifdef CONFIG_DEVICE_COMMON_NAME
+#ifdef CONFIG_DEVICE_COMMON_NAME
 COMPONENT_OBJS += azure-iot-sdk-c/provisioning_client/src/iothub_auth_client.o
-endif
+#endif
 
 ifdef CONFIG_TARGET_PLATFORM_ESP8266
 COMPONENT_OBJS += port/src/certs.o
@@ -162,8 +162,8 @@ endif
 
 CFLAGS += -Wno-unused-function -Wno-missing-braces -Wno-missing-field-initializers -DHSM_TYPE_X509 -DHSM_TYPE_SAS_TOKEN
 
-ifdef CONFIG_DEVICE_COMMON_NAME
+#ifdef CONFIG_DEVICE_COMMON_NAME
 CFLAGS += -DUSE_PROV_MODULE
-endif
+#endif
 
 azure-iot-sdk-c/iothub_client/src/iothubtransport_mqtt_common.o: CFLAGS+=-Wno-maybe-uninitialized
